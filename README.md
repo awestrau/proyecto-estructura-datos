@@ -5,7 +5,13 @@
 ### El simulador de Reproductor de Música: 
 
 1. Registro (struct) sugerido 
-   * Cada nodo de la lista contiene una canción: o nombreCancion (string) o compositor (string) o duracion (string, formato “mm:ss” o #“hh:mm:ss”) o letra (string) ← se carga leyendo un .txt externo o Punteros: anterior y siguiente 
+   * Cada nodo de la lista contiene una canción: 
+     * nombreCancion (string) 
+     * compositor (string) 
+     * duracion (string, formato “mm:ss” o #“hh:mm:ss”) 
+     * letra (string) ← se carga leyendo un .txt externo 
+     * Punteros: anterior y siguiente 
+  
 2. IMPORTANTE: la lista es doblemente enlazada y circular: nodo-> siguiente; nodo -> anterior; 
 
 3. y se mantiene un puntero del nodo actual para la canción “en reproducción”.
@@ -18,6 +24,7 @@
    * Mostrar playlist (mostrar las canciones con indicador de la canción actual). 
 
 5. Reproducción / navegación
+
    * Reproducir canción actual (mostrar datos + opcional: un fragmento de letra).
    * Siguiente canción (actual = #actual->next).
 
@@ -29,4 +36,4 @@
 
    * El ejecutable .exe (compilado y funcional). 
 
-7. La carpeta o archivos .txt que contienen las letras utilizadas en la demo (para que pueda probarse).
+6. La carpeta o archivos .txt que contienen las letras utilizadas en la demo (para que pueda probarse).
