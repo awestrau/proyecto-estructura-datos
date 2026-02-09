@@ -8,15 +8,18 @@
    * Cada nodo de la lista contiene una canción: o nombreCancion (string) o compositor (string) o duracion (string, formato “mm:ss” o #“hh:mm:ss”) o letra (string) ← se carga leyendo un .txt externo o Punteros: anterior y siguiente 
 2. IMPORTANTE: la lista es doblemente enlazada y circular: nodo-> siguiente; nodo -> anterior; 
 
-3. y se mantiene un puntero del nodo actual para la canción “en reproducción”. 3. Operaciones mínimas (lo que sí o sí deberían #implementar) a. Gestión de canciones 
+3. y se mantiene un puntero del nodo actual para la canción “en reproducción”.
+4. Operaciones mínimas (lo que sí o sí deberían #implementar) a. Gestión de canciones 
 
    * Agregar canción al final. Estas canciones se irán guardando en un archivo
 
-   * Eliminar canción por nombre. Recuerde confirmar la eliminación. • Buscar canción por nombre (y posicionar el nodo “actual” ahí). 
-
+   * Eliminar canción por nombre. Recuerde confirmar la eliminación.
+   * Buscar canción por nombre (y posicionar el nodo “actual” ahí). 
    * Mostrar playlist (mostrar las canciones con indicador de la canción actual). 
 
-4. Reproducción / navegación • Reproducir canción actual (mostrar datos + opcional: un fragmento de letra). • Siguiente canción (actual = #actual->next).
+5. Reproducción / navegación
+   * Reproducir canción actual (mostrar datos + opcional: un fragmento de letra).
+   * Siguiente canción (actual = #actual->next).
 
    * Canción anterior (actual = actual->prev). c. Archivo de letra
 
@@ -26,4 +29,4 @@
 
    * El ejecutable .exe (compilado y funcional). 
 
-5. La carpeta o archivos .txt que contienen las letras utilizadas en la demo (para que pueda probarse).
+7. La carpeta o archivos .txt que contienen las letras utilizadas en la demo (para que pueda probarse).
