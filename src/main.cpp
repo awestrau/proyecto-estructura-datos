@@ -10,10 +10,11 @@
 
 using namespace std;
 
-// main.cpp - Menú interactivo que integra ListaCircular, GestorArchivos y GestionCanciones
+// main.cpp este es el menú interactivo que integra ListaCircular, GestorArchivos y GestionCanciones
+
 // Notas para Andrés:
-// - Este archivo usa las funciones ya implementadas por Christopher.
-// - Si cambias nombres de métodos en ListaCircular o Cancion, actualiza aquí.
+// Este archivo usa las funciones ya implementadas por mi Cris.
+// Si cambias nombres de métodos en ListaCircular o Cancion, actualiza aquí.
 
 void mostrarMenu()
 {
@@ -34,7 +35,7 @@ int main()
 {
     ListaCircular lista;
 
-    // Cargar playlist desde disco usando GestorArchivos
+    // esto carga la playlist desde disco usando GestorArchivos
     vector<Cancion> cargadas = GestorArchivos::cargarPlaylist("playlist.dat");
     for (const Cancion &c : cargadas)
     {
@@ -53,7 +54,7 @@ int main()
             cout << "Opcion invalida. Intenta de nuevo.\n";
             continue;
         }
-        cin.ignore(); // limpiar newline
+        cin.ignore(); // limpia newline
 
         switch (opcion)
         {
@@ -68,7 +69,7 @@ int main()
             cout << "Ruta a archivo de letra (ej: letras/miCancion.txt) o deja vacío: ";
             getline(cin, c.rutaLetra);
 
-            // Cargar letra inmediatamente si se proporcionó ruta
+            // esto carga letra inmediatamente si se proporcionó ruta
             if (!c.rutaLetra.empty())
             {
                 c.letra = GestorArchivos::cargarLetraDesdeArchivo(c.rutaLetra);
@@ -116,7 +117,7 @@ int main()
             break;
         }
         case 9:
-            // Guardar automáticamente antes de salir
+            // y aqui se guarda automáticamente antes de salir
             {
                 vector<Cancion> todas = lista.obtenerTodasCanciones();
                 GestorArchivos::guardarPlaylist(todas, "playlist.dat");

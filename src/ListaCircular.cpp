@@ -1,7 +1,7 @@
-// ListaCircular.cpp
-// ANDRÉS: Implementa AQUÍ todos los métodos de la clase ListaCircular.
-// Este archivo está VACÍO intencionalmente para que lo completes tú.
-//
+
+// Mae aqui le pedi a la IA que me escribiera lo que tenias que implementar aqui, 
+//tal vez te sirva de guia para implementar el codigo, o al menos para entender lo que se espera de cada metodo.
+
 // ═══════════════════════════════════════════════════════════════════════════
 // 📋 TAREAS A IMPLEMENTAR (Copia esta estructura):
 // ═══════════════════════════════════════════════════════════════════════════

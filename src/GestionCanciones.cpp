@@ -1,8 +1,5 @@
 
-//  GestionCanciones.cpp  –  Cristopher
-//  Búsqueda y eliminación con punteros directos a Nodo.
-//  No depende de métodos adicionales de ListaCircular.
-
+//  GestionCanciones.cpp  Cristopher >:)
 #include "GestionCanciones.h"
 
 // [ANDRÉS-LINK] Cuando tengas los archivos listos reemplaza
@@ -16,16 +13,19 @@
 using namespace std;
 
 // aMinusculas – transforma a mayúsculas a minúsculas
+///esto crea una copia local de s. Trabajamos sobre la copia para no tocar el original (por eso el parámetro era const).
 string GestionCanciones::aMinusculas(const string &s)
 {
     string r = s;
     transform(r.begin(), r.end(), r.begin(),
               [](unsigned char c)
-              { return tolower(c); });
+              { return tolower(c); }); 
     return r;
 }
+//Esto es una **lambda** una función anónima que se define en el momento. Por cada carácter `c` del string, llama a `tolower(c)` que lo convierte a minúscula.
+//Se usa `unsigned char` y no `char` porque `tolower` tiene comportamiento indefinido con `char` si el valor es negativo (como caracteres especiales). `unsigned char` lo evita
 
-// buscarCancion
+// esto es lo que hace buscarCancion
 //   punteros directos:
 //    1. Guarda la posición de cabeza.
 //    2. Recorre nodo a nodo comparando nombres (sin mayús.).
@@ -36,7 +36,9 @@ string GestionCanciones::aMinusculas(const string &s)
 bool GestionCanciones::buscarCancion(ListaCircular &lista, const string &nombre)
 {
     // Verificar lista vacía accediendo directamente a cabeza
-    // [ANDRÉS-LINK] necesito que `cabeza` sea public o friend
+    // [ANDRÉS-LINK] necesito que `cabeza` sea public o friend (hagalo public guino guino) 
+    //lo que pasa es que cabeza es un atributo de ListaCircular. Por defecto en una clase es private, lo que significa que nadie de afuera puede tocarlo.
+    //Cuando yo escribo lista.cabeza desde GestionCanciones, estoy intentando acceder desde "afuera", y el compilador lo rechaza. ;)
     if (lista.cabeza == nullptr)
     {
         cout << "[INFO] La playlist esta vacia. No hay nada que buscar.\n";
@@ -76,10 +78,10 @@ bool GestionCanciones::buscarCancion(ListaCircular &lista, const string &nombre)
     return false;
 }
 
-// eliminarCancion
-//    1. Buscar el nodo a eliminar recorriendo la lista.
-//    2. Pedir confirmación s/n.
-//    3. Reconectar: nodoAnterior->siguiente = nodoSiguiente nodoSiguiente->anterior = nodoAnterior
+// esto es lo que hace eliminarCancion
+//    1. Busca el nodo a eliminar recorriendo la lista.
+//    2. Pide confirmación s/n.
+//    3. Reconecta: nodoAnterior->siguiente = nodoSiguiente nodoSiguiente->anterior = nodoAnterior
 //    4. Casos especiales:
 //       a) Lista con un solo nodo  -> cabeza = actual = nullptr
 //       b) El nodo a eliminar ES cabeza -> mover cabeza al sig.
@@ -99,7 +101,7 @@ bool GestionCanciones::eliminarCancion(ListaCircular &lista, const string &nombr
     Nodo *cursor = lista.cabeza;
     Nodo *objetivo = nullptr;
 
-    //Paso 1: buscar el nodo 
+    //Paso 1: busca el nodo 
     do
     {
         if (aMinusculas(cursor->cancion.nombreCancion) == nombreBuscado)
@@ -117,7 +119,7 @@ bool GestionCanciones::eliminarCancion(ListaCircular &lista, const string &nombr
         return false;
     }
 
-    //Paso 2: mostrar y confirmar 
+    //Paso 2: muestra y confirmar 
     cout << "\nSe eliminara la siguiente cancion:\n";
     cout << "---------------------------------------------\n";
     cout << "  Titulo    : " << objetivo->cancion.nombreCancion << "\n";
@@ -147,23 +149,23 @@ bool GestionCanciones::eliminarCancion(ListaCircular &lista, const string &nombr
         return true;
     }
 
-    //  Paso 4: reconectar punteros
+    //  Paso 4: reconecta los punteros
     Nodo *anteriorNodo = objetivo->anterior;
     Nodo *siguienteNodo = objetivo->siguiente;
 
     anteriorNodo->siguiente = siguienteNodo;
     siguienteNodo->anterior = anteriorNodo;
 
-    // Paso 5: actualizar cabeza si era la cabeza
+    // Paso 5: actualiza cabeza si era la cabeza
     if (objetivo == lista.cabeza)
     {
         lista.cabeza = siguienteNodo;
     }
 
-    // Paso 6: actualizar actual si era el nodo actual
+    // Paso 6: actualiza actual si era el nodo actual
     if (objetivo == lista.actual)
     {
-        // Movemos actual al siguiente para no dejar puntero colgante; el usuario sigue escuchando la próxima.
+        // Movemos actual al siguiente para no dejar puntero colgante y el usuario sigue escuchando la próxima.
         lista.actual = siguienteNodo;
         cout << "[INFO] La cancion en reproduccion fue eliminada. "
              << "Ahora suena: \""

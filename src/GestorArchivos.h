@@ -5,8 +5,9 @@
 #include <vector>
 using namespace std;
 
-//  GestorArchivos.h  –  Cristopher
-//  Maneja toda la persistencia: playlist.dat y letras/*.txt
+//  GestorArchivos.h  Cristopher
+
+// esto maneja toda la persistencia: playlist.dat y letras/*.txt
 
 // NOTA PARA ANDRÉS:
 //Este header NO depende de ListaCircular directamente para evitar dependencias circulares.Las funciones que reciben o devuelven la lista usan un puntero genérico void* quemain.cpp casteara al tipo correcto, O puedes incluir
