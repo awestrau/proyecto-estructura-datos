@@ -1,3 +1,5 @@
+#include "ListaCircular.h"
+#include <iostream>
 
 // Mae aqui le pedi a la IA que me escribiera lo que tenias que implementar aqui, 
 //tal vez te sirva de guia para implementar el codigo, o al menos para entender lo que se espera de cada metodo.
@@ -8,6 +10,8 @@
 //
 // 1. Constructor ListaCircular()
 //    └─ Inicializar cabeza = nullptr y actual = nullptr
+
+
 //
 // 2. Destructor ~ListaCircular()
 //    └─ Recorrer circularmente el nodo cabeza->siguiente hasta volver a cabeza
@@ -73,3 +77,115 @@
 // - Si tienes dudas de cómo usar los punteros, ver Cancion.h y Nodo struct
 //
 // ¡Buena suerte! 🎵
+
+ListaCircular::ListaCircular() {
+    cabeza = nullptr;
+    actual = nullptr;
+}
+
+ListaCircular::~ListaCircular() {
+    if (cabeza == nullptr) return;
+    Nodo* temp = cabeza->siguiente;
+    while (temp != cabeza) {
+        Nodo* a_borrar = temp;
+        temp = temp->siguiente;
+        delete a_borrar;
+    }
+    delete cabeza;
+    cabeza = nullptr;
+    actual = nullptr;
+}
+
+bool ListaCircular::estaVacia() const {
+    return cabeza == nullptr;
+}
+
+void ListaCircular::insertarAlFinal(const Cancion& c) {
+    Nodo* nuevo = new Nodo(c);
+    if (cabeza == nullptr) {
+        nuevo->siguiente = nuevo;
+        nuevo->anterior = nuevo;
+        cabeza = nuevo;
+        actual = nuevo;
+    } else {
+        Nodo* cola = cabeza->anterior;
+        cola->siguiente = nuevo;
+        nuevo->anterior = cola;
+        nuevo->siguiente = cabeza;
+        cabeza->anterior = nuevo;
+    }
+}
+
+void ListaCircular::siguienteCancion() {
+    if (actual != nullptr) {
+        cout << "[INFO] Avanzando a la siguiente cancion...\n";
+        actual = actual->siguiente;
+    } else {
+        cout << "[INFO] No hay cancion en reproduccion.\n";
+    }
+}
+
+void ListaCircular::anteriorCancion() {
+    if (actual != nullptr) {
+        cout << "[INFO] Retrocediendo a la cancion anterior...\n";
+        actual = actual->anterior;
+    } else {
+        cout << "[INFO] No hay cancion en reproduccion.\n";
+    }
+}
+
+void ListaCircular::mostrarPlaylist() const {
+    if (cabeza == nullptr) {
+        cout << "[INFO] Playlist vacia.\n";
+        return;
+    }
+    Nodo* temp = cabeza;
+    int idx = 1;
+    do {
+        cout << idx << ". " << temp->cancion.nombreCancion;
+        if (temp == actual) {
+            cout << " <-- (actual)";
+        }
+        cout << "\n";
+        temp = temp->siguiente;
+        idx++;
+    } while (temp != cabeza);
+}
+
+void ListaCircular::reproducirActual() const {
+    if (actual == nullptr) {
+        cout << "[INFO] No hay cancion en reproduccion.\n";
+        return;
+    }
+    cout << "════════════════════════════════════════════════════\n";
+    cout << "🎵 REPRODUCIENDO 🎵\n";
+    cout << "════════════════════════════════════════════════════\n";
+    cout << "Nombre: " << actual->cancion.nombreCancion << "\n";
+    cout << "Compositor: " << actual->cancion.compositor << "\n";
+    cout << "Duracion: " << actual->cancion.duracion << "\n";
+    cout << "────────────────────────────────────────────────────\n";
+    
+    if (actual->cancion.letra.empty() || actual->cancion.letra == "Letra no disponible") {
+        cout << "Letra no disponible\n";
+    } else {
+        if (actual->cancion.letra.length() > 400) {
+            cout << actual->cancion.letra.substr(0, 400) << "... [truncado]\n";
+        } else {
+            cout << actual->cancion.letra << "\n";
+        }
+    }
+    cout << "════════════════════════════════════════════════════\n";
+}
+
+vector<Cancion> ListaCircular::obtenerTodasCanciones() const {
+    vector<Cancion> canciones;
+    if (cabeza == nullptr) return canciones;
+    
+    Nodo* temp = cabeza;
+    do {
+        canciones.push_back(temp->cancion);
+        temp = temp->siguiente;
+    } while (temp != cabeza);
+    
+    return canciones;
+}

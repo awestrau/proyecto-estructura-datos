@@ -1,5 +1,5 @@
 #include "GestorArchivos.h"
-#include "Cancion.h" // [ANDRÉS-LINK] necesito Cancion.h
+#include "Cancion.h" 
 
 #include <fstream>
 #include <sstream>
@@ -52,8 +52,6 @@ string GestorArchivos::cargarLetraDesdeArchivo(const string &ruta)
 
 //   NOTA: para guardar la ruta necesitamos que el struct Cancion incluya un campo `rutaLetra` (string).
 
-//   [ANDRÉS-LINK] Agregue `string rutaLetra;` a Cancion.h si aún no lo tiene.  importante
-
 void GestorArchivos::guardarPlaylist(const vector<Cancion> &canciones, const string &archivoPlaylist)
 {
     ofstream archivo(archivoPlaylist);
@@ -72,7 +70,6 @@ void GestorArchivos::guardarPlaylist(const vector<Cancion> &canciones, const str
                 << c.compositor << "|"
                 << c.duracion << "|"
                 << c.rutaLetra << "\n";
-        // [ANDRÉS-LINK] c.rutaLetra debe existir en su struct Cancion
     }
 
     archivo.close();
@@ -129,7 +126,6 @@ vector<Cancion> GestorArchivos::cargarPlaylist(const string &archivoPlaylist)
         c.compositor = campos[1];
         c.duracion = campos[2];
         c.rutaLetra = campos[3];
-        // [ANDRÉS-LINK] c.rutaLetra debe existir en su struct
 
         // Cargar letra desde el .txt (si hay ruta)
         if (!c.rutaLetra.empty())

@@ -8,17 +8,8 @@ using namespace std;
 //  GestionCanciones.h  Cristopher
 //  este .H maneja búsqueda y eliminación con punteros directos al Nodo, sin depender de métodos específicos de ListaCircular.
 
-// NOTA PARA ANDRÉS                                       
-// Solo necesito que en ListaCircular declares PUBLIC:    
-//      Nodo* cabeza; // primer nodo de la lista        
-//      Nodo* actual; // canción en reproducción 
 
-
-// [ANDRÉS-LINK] Cuando tengas ListaCircular.h listo,
-// reemplaza las dos líneas de abajo por:
-// #include "ListaCircular.h"
-struct Nodo;           // forward declaration temporal
-class ListaCircular;   // forward declaration temporal
+#include "ListaCircular.h"
 
 class GestionCanciones {
 public:
