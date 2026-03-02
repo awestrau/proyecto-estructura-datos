@@ -2,9 +2,6 @@
 //  GestionCanciones.cpp  Cristopher >:)
 #include "GestionCanciones.h"
 
-// [ANDRÉS-LINK] Cuando tengas los archivos listos reemplaza
-// las dos líneas de abajo por:  #include "ListaCircular.h"
-#include "Cancion.h"
 #include "ListaCircular.h"
 
 #include <iostream>
@@ -36,9 +33,6 @@ string GestionCanciones::aMinusculas(const string &s)
 bool GestionCanciones::buscarCancion(ListaCircular &lista, const string &nombre)
 {
     // Verificar lista vacía accediendo directamente a cabeza
-    // [ANDRÉS-LINK] necesito que `cabeza` sea public o friend (hagalo public guino guino) 
-    //lo que pasa es que cabeza es un atributo de ListaCircular. Por defecto en una clase es private, lo que significa que nadie de afuera puede tocarlo.
-    //Cuando yo escribo lista.cabeza desde GestionCanciones, estoy intentando acceder desde "afuera", y el compilador lo rechaza. ;)
     if (lista.cabeza == nullptr)
     {
         cout << "[INFO] La playlist esta vacia. No hay nada que buscar.\n";
@@ -90,7 +84,6 @@ bool GestionCanciones::buscarCancion(ListaCircular &lista, const string &nombre)
 
 bool GestionCanciones::eliminarCancion(ListaCircular &lista, const string &nombre)
 {
-    // [ANDRÉS-LINK] necesito que `cabeza` y `actual` sean public o que GestionCanciones sea friend de ListaCircular
     if (lista.cabeza == nullptr)
     {
         cout << "[INFO] La playlist esta vacia. No hay nada que eliminar.\n";
