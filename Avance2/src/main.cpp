@@ -1,11 +1,11 @@
 // main.cpp — Avance 2
-// Persona B: menú dual que integra el Reproductor (Avance 1) con el Gestor de Archivos (Avance 2)
+// Persona B: menú dual que integra el Reproductor (Avance 1) con el Gestor de Archivos (Avance 2) osea cris
 // Compilar desde Avance2/src con algo como:
 //   g++ main.cpp MenuGestorArchivos.cpp ../../Avance1/src/ListaCircular.cpp
 //       ../../Avance1/src/GestorArchivos.cpp ../../Avance1/src/GestionCanciones.cpp -o gestor
 
 // ANDRES: necesito que GestorArbol.h y NodoArbol.h estén en esta misma carpeta (Avance2/src/).
-// Los incluyo aquí abajo. Cuando los tengas, avísame pa' ajustar el #include si lo pusiste en otro lado.
+// Los incluyo aquí abajo. Cuando los tengas, avísame pa ajustar el #include si lo pusiste en otro lado.
 
 #include <iostream>
 #include <string>
@@ -19,16 +19,15 @@
 #include "../../Avance1/src/GestionCanciones.h"
 
 // --- Avance 2 (Gestor de Archivos - árbol) ---
-// ANDRES: descomenta esto cuando tengas los archivos listos
+// ANDRES: descomente esto cuando tengas los archivos listos
 // #include "NodoArbol.h"
 // #include "GestorArbol.h"
 #include "MenuGestorArchivos.h"
 
 using namespace std;
 
-// -------------------------------------------------------
 // Menú del Reproductor (igual que Avance1, sin cambios)
-// -------------------------------------------------------
+
 void menuReproductor(ListaCircular& lista) {
     bool activo = true;
     while (activo) {
@@ -97,9 +96,7 @@ void menuReproductor(ListaCircular& lista) {
     }
 }
 
-// -------------------------------------------------------
 // Menú principal del programa
-// -------------------------------------------------------
 int main() {
     // Cargar playlist del Avance 1
     ListaCircular lista;
@@ -109,7 +106,7 @@ int main() {
 
     // ANDRES: aqui voy a instanciar GestorArbol cuando lo tengas listo.
     // algo como: GestorArbol arbol;
-    // Por ahora lo dejo comentado para que compile sin tu parte.
+    // Por ahora lo dejo comentado para que compile sin su parte.
     // GestorArbol arbol;
 
     bool corriendo = true;

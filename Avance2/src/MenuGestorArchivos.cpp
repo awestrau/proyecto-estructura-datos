@@ -1,4 +1,4 @@
-// MenuGestorArchivos.cpp — Persona B
+// MenuGestorArchivos.cpp — Persona B osea Cris
 // Lógica del menú de comandos para el Gestor de Archivos (árbol general).
 // Aquí va todo lo que es interfaz: imprimir, pedir input, validar, llamar al árbol.
 
@@ -10,29 +10,27 @@
 
 using namespace std;
 
-// -------------------------------------------------------
-// ANDRES: estas son las operaciones que necesito de tu GestorArbol.
+
+// ANDRES: estas son las operaciones que necesito de GestorArbol.
 // Te las listo para que sepas qué métodos implementar (o cómo los llamarías tú):
 //
-//   arbol.getRutaActual()           → string con la ruta tipo "/root/Docs/"
-//   arbol.listarHijos()             → imprime los hijos del nodo actual (ls)
-//   arbol.crearCarpeta(nombre)      → inserta nodo tipo CARPETA en actual
-//   arbol.crearArchivo(nombre)      → inserta nodo tipo ARCHIVO (.txt) en actual
-//   arbol.entrarCarpeta(nombre)     → mueve actual al hijo con ese nombre (cd)
-//   arbol.subirAlPadre()            → mueve actual al padre (cd ..)
-//   arbol.eliminar(nombre)          → borra hijo con ese nombre (rm)
-//   arbol.buscarHijo(nombre)        → bool, dice si existe un hijo con ese nombre
-//   arbol.obtenerContenido(nombre)  → string con el texto del archivo (cat)
-//   arbol.esCarpeta(nombre)         → bool, dice si el hijo es CARPETA o ARCHIVO
-//   arbol.mostrarArbol()            → recorrido preorden con indentación (ls -R)
+//   arbol.getRutaActual()            string con la ruta tipo "/root/Docs/"
+//   arbol.listarHijos()              imprime los hijos del nodo actual (ls)
+//   arbol.crearCarpeta(nombre)       inserta nodo tipo CARPETA en actual
+//   arbol.crearArchivo(nombre)       inserta nodo tipo ARCHIVO (.txt) en actual
+//   arbol.entrarCarpeta(nombre)      mueve actual al hijo con ese nombre (cd)
+//   arbol.subirAlPadre()             mueve actual al padre (cd ..)
+//   arbol.eliminar(nombre)           borra hijo con ese nombre (rm)
+//   arbol.buscarHijo(nombre)         bool, dice si existe un hijo con ese nombre
+//   arbol.obtenerContenido(nombre)   string con el texto del archivo (cat)
+//   arbol.esCarpeta(nombre)          bool, dice si el hijo es CARPETA o ARCHIVO
+//   arbol.mostrarArbol()             recorrido preorden con indentación (ls -R)
 //
 // Si los nombres que usaste son distintos, dímelos y ajusto aquí sin problema.
-// -------------------------------------------------------
-
 
 // Imprime la ruta actual al estilo: [/root/Documentos/]
 void mostrarRuta(/* GestorArbol& arbol */) {
-    // ANDRES: descomenta y ajusta esto cuando tengas getRutaActual():
+    // ANDRES: descomente y ajuste esto cuando tengas getRutaActual():
     // cout << "[" << arbol.getRutaActual() << "] $ ";
 
     // Stub temporal para que compile solo
@@ -54,17 +52,17 @@ void menuGestorArchivos(/* GestorArbol& arbol */) {
 
         // ---- ls: listar contenido de la carpeta actual ----
         if (comando == "ls") {
-            // ANDRES: cambia esto por: arbol.listarHijos();
+            // ANDRES: cambie esto por: arbol.listarHijos();
             cout << "[stub] ls: aqui van los hijos del nodo actual\n";
 
         // ---- ls -R: árbol completo desde raíz ----
         } else if (comando == "ls -R") {
-            // ANDRES: cambia esto por: arbol.mostrarArbol();
+            // ANDRES: cambie esto por: arbol.mostrarArbol();
             cout << "[stub] ls -R: aqui va el recorrido preorden completo\n";
 
         // ---- pwd: mostrar ruta actual ----
         } else if (comando == "pwd") {
-            // ANDRES: cambia esto por: cout << arbol.getRutaActual() << "\n";
+            // ANDRES: cambie esto por: cout << arbol.getRutaActual() << "\n";
             cout << "[stub] /root/\n";
 
         // ---- mkdir: crear carpeta ----
@@ -134,7 +132,7 @@ void menuGestorArchivos(/* GestorArbol& arbol */) {
         } else if (comando == "cd ..") {
             // ANDRES: necesito saber si ya estoy en la raíz para no subir más.
             // Asumo que subirAlPadre() no hace nada si ya está en raíz,
-            // o devuelve bool — lo que prefieras.
+            // o devuelve bool, lo que prefieras.
             // arbol.subirAlPadre();
             cout << "[stub] Subiendo al directorio padre...\n";
 
@@ -146,7 +144,7 @@ void menuGestorArchivos(/* GestorArbol& arbol */) {
                 continue;
             }
             // ANDRES: si eliminar una carpeta con hijos requiere confirmación,
-            // implementa esa validación en GestorArbol::eliminar() o dime y lo pongo aquí.
+            // implementa esa validación en GestorArbol::eliminar() o digame y lo pongo aquí.
             // bool existe = arbol.buscarHijo(nombre);
             bool existe = false; // stub
 
