@@ -19,9 +19,8 @@
 #include "../../Avance1/src/GestionCanciones.h"
 
 // --- Avance 2 (Gestor de Archivos - árbol) ---
-// ANDRES: descomente esto cuando tengas los archivos listos
-// #include "NodoArbol.h"
-// #include "GestorArbol.h"
+#include "NodoArbol.h"
+#include "GestorArbol.h"
 #include "MenuGestorArchivos.h"
 
 using namespace std;
@@ -104,10 +103,8 @@ int main() {
     for (const Cancion& c : cargadas)
         lista.insertarAlFinal(c);
 
-    // ANDRES: aqui voy a instanciar GestorArbol cuando lo tengas listo.
-    // algo como: GestorArbol arbol;
-    // Por ahora lo dejo comentado para que compile sin su parte.
-    // GestorArbol arbol;
+    // Instanciar GestorArbol
+    GestorArbol arbol;
 
     bool corriendo = true;
     while (corriendo) {
@@ -133,9 +130,7 @@ int main() {
             menuReproductor(lista);
             break;
         case 2:
-            // ANDRES: cuando GestorArbol esté listo, le paso 'arbol' a esta función.
-            // Por ahora la llamo sin parámetro, hay un stub adentro para que no truene.
-            menuGestorArchivos(/* arbol */);
+            menuGestorArchivos(arbol);
             break;
         case 3:
             // Guardar playlist antes de salir
