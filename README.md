@@ -37,3 +37,33 @@
    * El ejecutable .exe (compilado y funcional). 
 
 6. La carpeta o archivos .txt que contienen las letras utilizadas en la demo (para que pueda probarse).
+
+---
+
+## Compilación y Ejecución del Proyecto Integrado (Avance 3)
+
+El proyecto incluye un menú principal unificado que permite acceder al **Reproductor de Música**, al **Gestor de Archivos** y a la **Red Social**. 
+
+### Requisitos
+- Compilador de C++ (por ejemplo, `g++`).
+
+### Instrucciones
+
+1. Abrir la terminal y ubicarse en el directorio raíz del proyecto (`proyecto-estructura-datos`).
+2. Ejecutar el siguiente comando para compilar todos los archivos fuente juntos:
+
+```bash
+g++ main.cpp Avance3/src/MenuRedSocial.cpp Avance3/src/GrafoRedSocial.cpp Avance2/src/GestorArbol.cpp Avance2/src/MenuGestorArchivos.cpp Avance1/src/ListaCircular.cpp Avance1/src/GestionCanciones.cpp Avance1/src/GestorArchivos.cpp -o simulador
+```
+
+3. Ejecutar el programa compilado:
+
+En Linux o macOS:
+```bash
+./simulador
+```
+
+En Windows:
+```bash
+simulador.exe
+```
