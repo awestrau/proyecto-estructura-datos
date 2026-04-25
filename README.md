@@ -1,46 +1,51 @@
-# proyecto-estructura-datos
+# Proyecto Estructura de Datos
 
-## Avance 1: Implementar un simulador de reproductor de música utilizando una lista doblemente enlazada circular, que permita agregar, eliminar, buscar y navegar canciones hacia adelante y hacia atrás, simulando reproducción continua.
-
-### El simulador de Reproductor de Música: 
-
-1. Registro (struct) sugerido 
-   * Cada nodo de la lista contiene una canción: 
-     * nombreCancion (string) 
-     * compositor (string) 
-     * duracion (string, formato “mm:ss” o #“hh:mm:ss”) 
-     * letra (string) ← se carga leyendo un .txt externo 
-     * Punteros: anterior y siguiente 
-  
-2. IMPORTANTE: la lista es doblemente enlazada y circular: nodo-> siguiente; nodo -> anterior; 
-
-3. y se mantiene un puntero del nodo actual para la canción “en reproducción”.
-4. Operaciones mínimas (lo que sí o sí deberían #implementar) a. Gestión de canciones 
-
-   * Agregar canción al final. Estas canciones se irán guardando en un archivo
-
-   * Eliminar canción por nombre. Recuerde confirmar la eliminación.
-   * Buscar canción por nombre (y posicionar el nodo “actual” ahí). 
-   * Mostrar playlist (mostrar las canciones con indicador de la canción actual). 
-
-5. Reproducción / navegación
-
-   * Reproducir canción actual (mostrar datos + opcional: un fragmento de letra).
-   * Siguiente canción (actual = #actual->next).
-
-   * Canción anterior (actual = actual->prev). c. Archivo de letra
-
-   * Cargar letra desde archivo: dada una ruta (ej: letras/BohemianRhapsody.txt) leer todo el contenido al string letra.
-
-   * Si el archivo no existe: guardar un mensaje tipo “Letra no disponible”. 4. Entrega de archivo RAR: En un único archivo .RAR, incluya obligatoriamente: a. Todos los archivos .cpp y.h (si aplica) 
-
-   * El ejecutable .exe (compilado y funcional). 
-
-6. La carpeta o archivos .txt que contienen las letras utilizadas en la demo (para que pueda probarse).
+Este repositorio contiene la implementación paso a paso de un proyecto final para la clase de Estructura de Datos, dividido en tres avances principales que culminan en un sistema integrado.
 
 ---
 
-## Compilación y Ejecución del Proyecto Integrado (Avance 3)
+## Avance 1: Reproductor de Música (Lista Doblemente Enlazada Circular)
+
+Implementación de un simulador de reproductor de música. 
+* **Estructura base:** Lista doblemente enlazada circular para simular una reproducción continua.
+* **Funcionalidades:**
+  * Agregar canciones (título, compositor, duración, y ruta de la letra).
+  * Eliminar y buscar canciones por nombre.
+  * Navegar hacia adelante y hacia atrás en la playlist (`siguiente`, `anterior`).
+  * Mostrar playlist con indicador de canción actual.
+  * Reproducir canción (mostrar datos y opcionalmente cargar la letra desde un archivo `.txt`).
+  * Guardado persistente de la playlist en un archivo `.dat`.
+
+---
+
+## Avance 2: Gestor de Archivos (Árbol General)
+
+Implementación de un sistema de archivos jerárquico.
+* **Estructura base:** Árbol General compuesto por nodos que representan carpetas o archivos.
+* **Funcionalidades:**
+  * Operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para carpetas y archivos `.txt`.
+  * Navegación dinámica entre niveles (entrar a carpetas, regresar al directorio padre).
+  * Mostrar ruta actual (ej: `/root/Documentos/`).
+  * Visualización en cascada/indentada del árbol de directorios.
+  * Validación contra nombres duplicados en el mismo directorio.
+
+---
+
+## Avance 3: Red Social y Proyecto Integrado (Grafo No Dirigido)
+
+Implementación de un módulo de red social y la integración de los tres avances en un menú principal unificado.
+* **Estructura base:** Grafo no dirigido para representar a los usuarios y sus relaciones de amistad.
+* **Funcionalidades:**
+  * Crear, buscar, eliminar y listar usuarios.
+  * Agregar y eliminar amistades (aristas).
+  * Visualizar lista de amigos de un usuario.
+  * Recorridos BFS (Anchura) y DFS (Profundidad).
+  * Verificar conexiones indirectas entre usuarios utilizando recorridos del grafo.
+* **Integración Final:** Menú de consola que permite acceder a los 3 submódulos sin perder la persistencia de datos durante la ejecución.
+
+---
+
+## Compilación y Ejecución del Proyecto Integrado
 
 El proyecto incluye un menú principal unificado que permite acceder al **Reproductor de Música**, al **Gestor de Archivos** y a la **Red Social**. 
 
