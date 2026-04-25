@@ -2,6 +2,14 @@
 
 Este repositorio contiene la implementación paso a paso de un proyecto final para la clase de Estructura de Datos, dividido en tres avances principales que culminan en un sistema integrado.
 
+**Integrantes:** 
+- Andrés Westra Ureña
+- Camila Sánchez Morales
+- Cristopher Arauz Alvarado
+
+**Profesor:** 
+- Bryan Hernández Sibaja
+
 ---
 
 ## Avance 1: Reproductor de Música (Lista Doblemente Enlazada Circular)
